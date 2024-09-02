@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'Screen3.dart';
 class Screen2 extends StatefulWidget {
   final String name;
   final String image;
@@ -146,7 +148,7 @@ class _Screen2State extends State<Screen2> {
                     children: [
                       Padding(
                         padding:  EdgeInsets.only(top: 15.0),
-                        child: Text('Transition',style: TextStyle(
+                        child: Text('Speed',style: TextStyle(
                           color: Color(0xFF95BCCC),
                           fontSize: 12,
                           fontFamily: 'PT Sans',
@@ -155,7 +157,7 @@ class _Screen2State extends State<Screen2> {
                         ),),
                       ),
                       SizedBox(height: 15.h,),
-                      Text('Automatic', style: TextStyle(
+                      Text('200kmph', style: TextStyle(
                         color: Colors.black,
                         fontSize: 12,
                         fontFamily: 'PT Sans',
@@ -244,24 +246,28 @@ class _Screen2State extends State<Screen2> {
         SizedBox(height: 30.h,),
         Padding(
           padding:  EdgeInsets.only(left: 180.0),
-          child: Container(
-            width: 179,
-            height: 52,
-            decoration: ShapeDecoration(
-              color: Colors.black,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+          child: GestureDetector(onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Screen3()));
+          },
+            child: Container(
+              width: 179,
+              height: 52,
+              decoration: ShapeDecoration(
+                color: Colors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
-            ),
-            child: Center(
-              child: Text(
-                'BOOK NOW', style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontFamily: 'Imprima',
-                fontWeight: FontWeight.w400,
-                height: 0,
-              ),
+              child: Center(
+                child: Text(
+                  'BOOK NOW', style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontFamily: 'Imprima',
+                  fontWeight: FontWeight.w400,
+                  height: 0,
+                ),
+                ),
               ),
             ),
           ),

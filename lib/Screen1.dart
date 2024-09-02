@@ -14,7 +14,7 @@ class Screen1 extends StatefulWidget {
 class _Screen1State extends State<Screen1> {
   @override
   Widget build(BuildContext context) {
-    List<String>image=['assets/car1.png','assets/car2.png','assets/car3.png','assets/car4.png'];
+    List<String>image=['assets/car1og.png','assets/car2og.png','assets/range og.png','assets/tesla.png'];
     List<String>name=["TOYATA",'LAMBORGHINI',"RANGE ROVER","TESLA"];
     List<String>name1=["\$300",'\$550',"\$150","\%150"];
     List<Color>color=[Color(0xFFCCBCBC),Color(0xFFF6F6F6),Color(0x93FCC21A),Color(0xFFF7F7F7)];
