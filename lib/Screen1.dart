@@ -1,3 +1,4 @@
+import 'package:carrental/screen2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -49,75 +50,79 @@ class _Screen1State extends State<Screen1> {
               children: List.generate(4, (index) {
                 return Padding(
                   padding: const EdgeInsets.all(10.0),
-                  child:      Container(
+                  child:      GestureDetector(onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Screen2(name:name[index], image: image[index].toString() ,)));
+                  },
+                    child: Container(
 
-                    decoration: ShapeDecoration(
-                      color: color[index],
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-                      shadows: [
-                        BoxShadow(
-                          color: Color(0x3F000000),
-                          blurRadius: 4,
-                          offset: Offset(0, 4),
-                          spreadRadius: 0,
-                        )
-                      ],
-                    ),
-                    child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(height: 129.h,width: 194.w,child: Image.asset(image[index],fit: BoxFit.contain,)),
+                      decoration: ShapeDecoration(
+                        color: color[index],
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                        shadows: [
+                          BoxShadow(
+                            color: Color(0x3F000000),
+                            blurRadius: 4,
+                            offset: Offset(0, 4),
+                            spreadRadius: 0,
+                          )
+                        ],
+                      ),
+                      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(height: 129.h,width: 194.w,child: Image.asset(image[index],fit: BoxFit.contain,)),
 
-                        Padding(
-                          padding:  EdgeInsets.only(left: 20.0),
-                          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(name[index],  style: TextStyle(
-                                color: Color(0xFF2B4C59),
-                                fontSize: 11,
-                                fontFamily: 'PT Sans',
-                                fontWeight: FontWeight.w400,
-                                height: 0,
-                              ),),
-                              SizedBox(height: 5.h,),
-                              Row(
-                                children: [
-                                  Text.rich(
-                                    TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: name1[index],
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 10,
-                                            fontFamily: 'PT Sans',
-                                            fontWeight: FontWeight.w400,
-                                            height: 0,
+                          Padding(
+                            padding:  EdgeInsets.only(left: 20.0),
+                            child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(name[index],  style: TextStyle(
+                                  color: Color(0xFF2B4C59),
+                                  fontSize: 11,
+                                  fontFamily: 'PT Sans',
+                                  fontWeight: FontWeight.w400,
+                                  height: 0,
+                                ),),
+                                SizedBox(height: 5.h,),
+                                Row(
+                                  children: [
+                                    Text.rich(
+                                      TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: name1[index],
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 10,
+                                              fontFamily: 'PT Sans',
+                                              fontWeight: FontWeight.w400,
+                                              height: 0,
+                                            ),
                                           ),
-                                        ),
-                                        TextSpan(
-                                          text:"/day",
-                                          style: TextStyle(
-                                            color: Color(0xFF988080),
-                                            fontSize: 10,
-                                            fontFamily: 'PT Sans',
-                                            fontWeight: FontWeight.w400,
-                                            height: 0,
+                                          TextSpan(
+                                            text:"/day",
+                                            style: TextStyle(
+                                              color: Color(0xFF988080),
+                                              fontSize: 10,
+                                              fontFamily: 'PT Sans',
+                                              fontWeight: FontWeight.w400,
+                                              height: 0,
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(width: 40.w,),
-                                  Icon(Icons.favorite_border,size: 15,color: Colors.red,),
-                                  SizedBox(width: 10,),
-                                  Icon(Icons.arrow_forward_rounded,size: 15,)
-                                ],
-                              ),
-                            ],
-                          ),
-                        )
+                                    SizedBox(width: 40.w,),
+                                    Icon(Icons.favorite_border,size: 15,color: Colors.red,),
+                                    SizedBox(width: 10,),
+                                    Icon(Icons.arrow_forward_rounded,size: 15,)
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )
 
-                      ],
+                        ],
+                      ),
                     ),
                   )
 
