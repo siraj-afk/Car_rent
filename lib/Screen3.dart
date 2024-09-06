@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 import 'Screen4.dart';
 class Screen3 extends StatefulWidget {
@@ -10,6 +12,7 @@ class Screen3 extends StatefulWidget {
 }
 
 class _Screen3State extends State<Screen3> {
+  bool wwe = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,8 +56,20 @@ class _Screen3State extends State<Screen3> {
                   ),),
                   Padding(
                     padding: EdgeInsets.only(right: 20.0),
-                    child: Icon(Icons.bar_chart),
-                  )
+                   child:  FlutterSwitch(
+                      height: 20.0,
+                      width: 40.0,
+                      padding: 4.0,
+                      toggleSize: 15.0,
+                      borderRadius: 10.0,
+                      activeColor: Colors.black,
+                      value: wwe,
+                      onToggle: (value) {
+                        setState(() {
+                          wwe = value;
+                        });
+                      },
+                    ),                  )
                 ],
               ),
             ),
@@ -83,13 +98,35 @@ class _Screen3State extends State<Screen3> {
                         height: 0,
                       ),),
                       SizedBox(height: 10.h,),
-                      Text('Rated:   ',style: TextStyle(
-                        color: Color(0xFFC7C7C7),
-                        fontSize: 11,
-                        fontFamily: 'PT Sans',
-                        fontWeight: FontWeight.w400,
-                        height: 0,
-                      ),)
+                      Row(
+                        children: [
+                          Text('Rated:   ',style: TextStyle(
+                            color: Color(0xFFC7C7C7),
+                            fontSize: 11,
+                            fontFamily: 'PT Sans',
+                            fontWeight: FontWeight.w400,
+                            height: 0,
+                          ),),
+                    RatingBar.builder(
+                      itemSize: 15,
+                    initialRating: 4,
+                    minRating: 1,
+                    direction: Axis.horizontal,
+                    allowHalfRating: true,
+                    itemCount: 4,
+                    itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                    itemBuilder: (context, _) => Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    onRatingUpdate: (rating) {
+                      print(rating);
+                    },
+                  )
+
+
+                        ],
+                      )
                     ],
                   ),
                 )
@@ -272,19 +309,22 @@ class _Screen3State extends State<Screen3> {
                   ),
                 ),
                 child: Center(
-                  child: Row(
-                    children: [
-                      Icon(Icons.location_on),
-                      SizedBox(width: 20.w,),
-                      Text('Street 203  House 348 City Kigali', style: TextStyle(
-                        color: Colors.black.withOpacity(0.5799999833106995),
-                        fontSize: 13,
-                        fontStyle: FontStyle.italic,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w300,
-                        height: 0,
-                      ),)
-                    ],
+                  child: Padding(
+                    padding:  EdgeInsets.only(left: 50.0),
+                    child: Row(
+                      children: [
+                        Icon(Icons.location_on),
+                        SizedBox(width: 20.w,),
+                        Text('Street 203  House 348 City Kigali', style: TextStyle(
+                          color: Colors.black.withOpacity(0.5799999833106995),
+                          fontSize: 13,
+                          fontStyle: FontStyle.italic,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w300,
+                          height: 0,
+                        ),)
+                      ],
+                    ),
                   ),
                 ),
               ),

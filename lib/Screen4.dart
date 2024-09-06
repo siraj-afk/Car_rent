@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 import 'Screen5.dart';
 class Screen4 extends StatefulWidget {
@@ -11,6 +12,7 @@ class Screen4 extends StatefulWidget {
 }
 
 class _Screen4State extends State<Screen4> {
+  bool trap = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,7 +118,7 @@ class _Screen4State extends State<Screen4> {
                     hintText: 'Phone Number:'
                   ),
                 ),
-                SizedBox(height: 10.h,),
+                SizedBox(height: 30.h,),
                 Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('Remember This Info:', style: TextStyle(
@@ -126,15 +128,32 @@ class _Screen4State extends State<Screen4> {
                       fontWeight: FontWeight.w700,
                       height: 0,
                     ),),
+                    Padding(
+                      padding:  EdgeInsets.only(right: 8.0,top: 8),
+                      child: FlutterSwitch(
+                        height: 20.0,
+                        width: 40.0,
+                        padding: 4.0,
+                        toggleSize: 15.0,
+                        borderRadius: 10.0,
+                        activeColor: Colors.black,
+                        value: trap,
+                        onToggle: (value) {
+                          setState(() {
+                            trap = value;
+                          });
+                        },
+                      ),
+                    ),
 
                   ],
                 ),
-                SizedBox(height: 5.h,),
+                SizedBox(height: 20.h,),
                 Container(
                   width: 351,
                   height: 1,
                   clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(color: Color(0xFFBECEDA)),
+                  decoration: BoxDecoration(color: Colors.black),
                 ),
                 SizedBox(height: 150.h,),
               GestureDetector(onTap: (){

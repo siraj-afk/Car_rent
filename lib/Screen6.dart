@@ -30,16 +30,28 @@ class _Screen6State extends State<Screen6> {
               ],
             ),
             SizedBox(height: 80.h,),
-            Center(child: Icon(Icons.shopping_cart,color: Colors.green,size: 100,)),
+            Center(child: Container(
+                width: 183,
+                height: 178,
+                decoration: ShapeDecoration(
+                  color: Color(0x00D9D9D9),
+                  shape: OvalBorder(
+                    side: BorderSide(width: 3, color: Color(0xFF69C549)),
+                  ),
+                ),
+
+                child: Icon(Icons.shopping_cart,color: Colors.green,size: 100,))),
             SizedBox(height: 40.h,),
-            Text('Thank You',style: TextStyle(
-              color: Color(0xFF69C549),
-              fontSize: 24,
-              fontFamily: 'Roboto',
-              fontWeight: FontWeight.w700,
-              height: 0,
-            ),),
-            SizedBox(height: 20.h,),
+            Center(
+              child: Text('Thank You',style: TextStyle(
+                color: Color(0xFF69C549),
+                fontSize: 24,
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.w700,
+                height: 0,
+              ),),
+            ),
+            SizedBox(height: 30.h,),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('PAYMENT MADE',style: TextStyle(
@@ -58,8 +70,8 @@ class _Screen6State extends State<Screen6> {
                 ),)
               ],
             ),
-            SizedBox(height: 40.h,),
-            Text('Well done your payment is\n Syccessfuly  done\n and your car is on its way',
+            SizedBox(height: 70.h,),
+            Text('Well done your payment is\nSyccessfuly  done\nand your car is on its way',
               style: TextStyle(
                 color: Color(0xFF676767),
                 fontSize: 18,
@@ -67,7 +79,7 @@ class _Screen6State extends State<Screen6> {
                 fontWeight: FontWeight.w400,
                 height: 0,
               ),),
-            SizedBox(height: 80.h,),
+            SizedBox(height: 100.h,),
             Center(
               child: Container(
                 width: 349.w,
@@ -90,7 +102,7 @@ class _Screen6State extends State<Screen6> {
                 ),
               ),
             ),
-            SizedBox(height: 50.h,),
+            SizedBox(height: 30.h,),
             Center(
               child: Container(
                 width: 349.w,

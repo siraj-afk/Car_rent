@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 import 'Screen6.dart';
 class Screen5 extends StatefulWidget {
@@ -11,6 +12,7 @@ class Screen5 extends StatefulWidget {
 }
 
 class _Screen5State extends State<Screen5> {
+  bool car = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +36,6 @@ class _Screen5State extends State<Screen5> {
             ),
             SizedBox(height: 50.h,),
             Image.asset('assets/img_3.png'),
-            SizedBox(height: 20.h,),
             TextField(textDirection: TextDirection.rtl,
               decoration: InputDecoration(
                 hintText: 'Card Number:',
@@ -53,7 +54,43 @@ class _Screen5State extends State<Screen5> {
               ),
             ),
             SizedBox(height: 10.h,),
-            SizedBox(height: 120.h,),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Remember This Info:', style: TextStyle(
+                  color: Color(0xFF828282),
+                  fontSize: 14,
+                  fontFamily: 'PT Sans',
+                  fontWeight: FontWeight.w700,
+                  height: 0,
+                ),),
+                Padding(
+                  padding:  EdgeInsets.only(right: 8.0,top: 8),
+                  child: FlutterSwitch(
+                    height: 20.0,
+                    width: 40.0,
+                    padding: 4.0,
+                    toggleSize: 15.0,
+                    borderRadius: 10.0,
+                    activeColor: Colors.black,
+                    value: car,
+                    onToggle: (value) {
+                      setState(() {
+                        car = value;
+                      });
+                    },
+                  ),
+                ),
+
+              ],
+            ),
+        SizedBox(height: 20,),
+        Container(
+          width: 351,
+          height: 1,
+          clipBehavior: Clip.antiAlias,
+          decoration: BoxDecoration(color: Colors.black),
+        ),
+            SizedBox(height: 60.h,),
             GestureDetector(onTap: (){
               Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Screen6()));
             },
